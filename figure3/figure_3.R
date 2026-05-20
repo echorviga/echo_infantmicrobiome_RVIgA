@@ -1,6 +1,7 @@
 ########### Packages Needed   ###############
 library(data.table)
 ##########
+
 ##Note: This code will only provide the models and results needed to later make the plots
 ######### Data Set Up #############
 shandiv_df_all <- read.csv("figure3.csv") %>% as.data.table
@@ -44,6 +45,7 @@ measures.numeric <- c(
   'bfdur_rec'
 )
 
+# Models 
 dt.melt.list <- lapply(list(factors = measures.factor,numerics = measures.numeric),function(i){
   data.table::melt(
     dt[,j = .SD,.SDcols = c(vars,i)],
