@@ -4,18 +4,18 @@
 ########################################
 
 
-######## Set up ############
+######## Load Packages ############
 library(tidyverse); library(dplyr); library(data.table);
 library(rstatix); library(ggpubr); library(vegan) ; library(ggplot2); 
 library(glue);library(ape);library(grid)
 
 #### ASV and Metadata for Figures 1A and 1B #####
 
-in.full.meta <- read.csv("../Microbiome_RVV/paper/working_code/code_upload/figure2/metadata_fig2_AB.csv")%>%
+in.full.meta <- read.csv("metadata_fig2_AB.csv")%>%
   mutate(sample_id=sid) %>%
   column_to_rownames(., var="sample_id")
 
-in.full.ra <- read.csv("../Microbiome_RVV/paper/working_code/code_upload/figure2/asv_fig2_AB.csv") %>%
+in.full.ra <- read.csv("asv_fig2_AB.csv") %>%
   column_to_rownames(., var="sid") %>%
   as.matrix()
 
